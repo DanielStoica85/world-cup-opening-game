@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+/* General styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #a9d878;
+}
+
+.container {
+    width: 90%;
+    margin: 10% auto;
+    padding: 3%;
+    background: #D1D5C9;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: .5rem solid #1E7D4C;
+    border-left: .5rem solid #D52B1E;
+}
+
+/* Header */
+
+.header {
+    width: 100%;
+    min-height: 12rem;
+    display: grid;
+    grid-gap: 2%;
+    grid-template-rows: 19% 49% 29%;
+    grid-template-columns: 34% 29% 34%;
+    grid-template-areas: 
+        'details details details' 
+        'flag1 score flag2'
+        'team1 . team2';
+}
+
+.details {
+    font-size: 1rem;
+    grid-area: details;
+    padding: 0 0 3% 0;
+}
+
+.flag {
+    border-radius: 15%;
+}
+
+.team {
+    padding: 5% 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.score {
+    font-size: 1.6rem;
+}
+
+#team1 {
+    grid-area: team1;
+}
+
+#team2 {
+    grid-area: team2;
+}
+
+.score {
+    grid-area: score;
+    align-self: center;
+}
+
+.team:hover, .flag:hover {
+    cursor: pointer;
+}
+
+/* Stats section */
+
+#stats {
+    height: 300px;
+    background: #a9d878;
+}
+
+/* Footer section */
+
+#footer {
+
+}
+
+
+
