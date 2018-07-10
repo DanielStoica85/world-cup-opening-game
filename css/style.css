@@ -40,10 +40,7 @@ body {
     grid-gap: 2%;
     grid-template-rows: 19% 49% 29%;
     grid-template-columns: 34% 29% 34%;
-    grid-template-areas: 
-        'details details details' 
-        'flag1 score flag2'
-        'team1 . team2';
+    grid-template-areas: 'details details details' 'flag1 score flag2' 'team1 . team2';
 }
 
 .details {
@@ -79,11 +76,16 @@ body {
     align-self: center;
 }
 
-.team:hover, .flag:hover {
+.team:hover,
+.flag:hover {
     cursor: pointer;
 }
 
 /* Stats section */
+
+#content {
+    width: 100%;
+}
 
 #stats {
     width: 100%;
@@ -108,11 +110,52 @@ body {
     font-weight: 400;
 }
 
-/* Footer section */
+/* Highlights */
 
-#footer {
-
+.highlights {
+    display: block;
+    padding: 5% 5%;
 }
 
+.highlight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 1%;
+}
 
+.minute {
+    text-align: left;
+    flex-basis: 5%;
+    align-self: flex-start;
+}
 
+.event {
+    text-align: left;
+    flex-basis: 75%;
+}
+
+.icon {
+    text-align: right;
+    flex-basis: 10%;
+}
+
+.card {
+    width: .7rem;
+    height: 1rem;
+    background: yellow;
+    display: inline-block;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.fa-arrow-down {
+    color: red;
+}
+
+.fa-arrow-up {
+    color: green;
+}
+
+/* Footer section */
+
+#footer {}
