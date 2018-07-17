@@ -31,6 +31,23 @@ body {
     border-left: .5rem solid #D52B1E;
 }
 
+@media (min-width: 481px) {
+    #container {
+        margin: 2% auto;
+    }
+}
+
+#content-title {
+    font-size: 1.5rem;
+}
+
+@media (min-width: 481px) {
+    #content-title {
+        font-size: 3.5rem;
+        padding: 1rem 0;
+    }
+}
+
 /* Header */
 
 .header {
@@ -49,6 +66,12 @@ body {
     padding: 0 0 3% 0;
 }
 
+@media (min-width: 481px) {
+    .details {
+        font-size: 1.5rem;
+    }
+}
+
 .flag {
     border-radius: 15%;
 }
@@ -59,8 +82,30 @@ body {
     font-weight: 600;
 }
 
-.score {
+@media (min-width: 768px) {
+    .team {
+        font-size: 2.3rem;
+    }
+}
+
+@media (min-width: 1281px) {
+    .team {
+        font-size: 3rem;
+    }
+}
+
+#score {
     font-size: 1.6rem;
+    grid-area: score;
+    align-self: center;
+    cursor: pointer;
+}
+
+@media (min-width: 481px) {
+    #score {
+        font-size: 3rem;
+        white-space: nowrap;
+    }
 }
 
 #team1 {
@@ -69,11 +114,6 @@ body {
 
 #team2 {
     grid-area: team2;
-}
-
-.score {
-    grid-area: score;
-    align-self: center;
 }
 
 .team:hover,
@@ -95,14 +135,35 @@ body {
     grid-template-columns: 45% 45%;
 }
 
+@media (min-width: 481px) {
+    #stats {
+        grid-gap: 3.3%;
+        grid-template-columns: 30% 30% 30%;
+    }
+}
+
 .stat {
     padding: 8%;
 }
 
 .stat-value {
     font-size: 1.4rem;
-    color: #1E7D4C;
+    /* color: #1E7D4C; */
     font-weight: 700;
+}
+
+@media (min-width: 481px) {
+    .stat-value {
+        font-size: 3rem;
+    }
+}
+
+.russia-color {
+    color: #D52B1E;
+}
+
+.saudi-arabia-color {
+    color: #1E7D4C;
 }
 
 .stat-name {
@@ -110,11 +171,23 @@ body {
     font-weight: 400;
 }
 
+@media (min-width: 481px) {
+    .stat-name {
+        font-size: 2rem;
+    }
+}
+
 /* Highlights */
 
-.highlights {
+#highlights {
     display: block;
     padding: 5% 5%;
+}
+
+@media (min-width: 481px) {
+    #highlights {
+        font-size: 1.5rem;
+    }
 }
 
 .highlight {
@@ -140,6 +213,30 @@ body {
     flex-basis: 10%;
 }
 
+@media (min-width: 481px) {
+    .minute {
+        flex-basis: 10%;
+    }
+    .event {
+        flex-basis: 80%;
+    }
+    .icon {
+        flex-basis: 5%;
+    }
+}
+
+@media (min-width: 1281px) {
+    .minute {
+        flex-basis: 5%;
+    }
+    .event {
+        flex-basis: 85%;
+    }
+    .icon {
+        flex-basis: 5%;
+    }
+}
+
 .card {
     width: .7rem;
     height: 1rem;
@@ -158,4 +255,12 @@ body {
 
 /* Footer section */
 
-#footer {}
+footer {
+    font-size: 1rem;
+}
+
+@media (min-width: 481px) {
+    footer {
+        font-size: 1.5rem;
+    }
+}

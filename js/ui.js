@@ -2,63 +2,23 @@ class UI {
 
     constructor() {
         this.statsSection = document.getElementById('content');
-        this.statsTitle = document.getElementById('content-title');
         this.statsDiv = document.getElementById('stats');
         this.highlightsDiv = document.getElementById('highlights');
-    }
-
-    showStats(teamStats) {
-
-        this.highlightsDiv = document.getElementById('highlights');
-        this.highlightsDiv.style.display = 'none';
-        this.statsDiv = document.getElementById('stats');
-        this.statsDiv.style.display = 'none';
-        // display data
-        this.updateStatsTitle(teamStats.teamName);
-        this.addStatistic(teamStats.teamStats);
-
-    }
-
-    updateStatsTitle(teamName) {
-        this.statsTitle.textContent = `${teamName} statistics`;
-    }
-
-    addStatistic(stats) {
-
-        const statsDiv = document.createElement('div');
-        statsDiv.id = 'stats';
-        this.statsSection.appendChild(statsDiv);
-
-        for (let key in stats) {
-            // from camelCase to separate words
-            let result = key.replace(/([A-Z])/g, " $1");
-            // get name and value for each statistic items
-            let statistic = result.charAt(0).toUpperCase() + result.slice(1);
-            let statisticValue = stats[key];
-            // display statistics
-            let output = `<h2 class="stat-value">${statisticValue}</h2>
-                    <h3 class="stat-name">${statistic}</h3>`;
-            const statDiv = document.createElement('div');
-            statDiv.classList.add('stat');
-            statDiv.innerHTML = output;
-            statsDiv.appendChild(statDiv);
-        }
-
-    }
-
-    addEventDiv(parentDiv, output) {
-        const eventDiv = document.createElement('div');
-        eventDiv.classList.add('highlight');
-        eventDiv.innerHTML = output;
-        parentDiv.appendChild(eventDiv);
     }
 
     displayHighlights(highlights) {
 
+        // clear stats section
+        this.statsSection.innerHTML = '';
+
+        // add title
+        this.addTitle('Highlights');
+
+        // create highlights div
         const highlightsDiv = document.createElement('div');
         highlightsDiv.id = 'highlights';
-        this.statsSection.appendChild(highlightsDiv);
 
+        // add all events in highlights div
         highlights.forEach((event, index) => {
             // game start event
             if (event.eventName === 'Game-Start') {
@@ -117,5 +77,58 @@ class UI {
                 this.addEventDiv(highlightsDiv, output);
             }
         });
+
+        // add highlights div
+        this.statsSection.appendChild(highlightsDiv);
     }
+
+    addEventDiv(parentDiv, output) {
+        const eventDiv = document.createElement('div');
+        eventDiv.classList.add('highlight');
+        eventDiv.innerHTML = output;
+        parentDiv.appendChild(eventDiv);
+    }
+
+    showStats(teamStats) {
+
+        // clear stats section
+        this.statsSection.innerHTML = '';
+        // display data
+        this.addTitle(teamStats.teamName);
+        this.addStatistic(teamStats.teamStats, teamStats.teamName);
+
+    }
+
+    addTitle(title) {
+        const titleDiv = document.createElement('h1');
+        titleDiv.id = 'content-title';
+        titleDiv.textContent = title;
+        this.statsSection.appendChild(titleDiv);
+    }
+
+    addStatistic(stats, teamName) {
+
+        const statsDiv = document.createElement('div');
+        statsDiv.id = 'stats';
+        this.statsSection.appendChild(statsDiv);
+
+        teamName = teamName.replace(/\s+/g, '-').toLowerCase();
+
+        for (let key in stats) {
+            // from camelCase to separate words
+            let result = key.replace(/([A-Z])/g, " $1");
+            // get name and value for each statistic items
+            let statistic = result.charAt(0).toUpperCase() + result.slice(1);
+            let statisticValue = stats[key];
+            // display statistics
+            let output = `<h2 class="stat-value ${teamName}-color">${statisticValue}</h2>
+                    <h3 class="stat-name">${statistic}</h3>`;
+            const statDiv = document.createElement('div');
+            statDiv.classList.add('stat');
+            statDiv.innerHTML = output;
+            statsDiv.appendChild(statDiv);
+        }
+
+    }
+
 }
