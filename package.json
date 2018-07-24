@@ -1,9 +1,10 @@
 {
   "name": "opening-game-stats",
   "version": "1.0.0",
-  "description": "World Cup opening game visualizer\r ---",
-  "main": "index.js",
+  "description": "World Cup opening game",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel js --out-dir compiled"
   },
@@ -12,5 +13,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
   }
 }
