@@ -131,4 +131,15 @@ class UI {
 
     }
 
+    showError(message) {
+        // clear stats section
+        this.statsSection.innerHTML = '';
+
+        const errorDiv = document.createElement('div');
+        errorDiv.id = 'error';
+        errorDiv.innerText = message;
+
+        this.statsSection.appendChild(errorDiv);
+    }
+
 }

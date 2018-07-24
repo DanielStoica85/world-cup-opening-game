@@ -8,7 +8,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
         .then(highlights => {
             ui.displayHighlights(highlights);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            ui.showError('Unable to fetch highlights of this match. Please try again later!');
+        });
 
     document.querySelector('.header').addEventListener('click', (e) => {
 
@@ -35,6 +38,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
             .then(highlights => {
                 ui.displayHighlights(highlights);
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err);
+                ui.showError('Unable to fetch highlights of this match. Please try again later!');
+            });
     });
 });
