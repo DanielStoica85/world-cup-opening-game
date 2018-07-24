@@ -4,7 +4,7 @@ const data = new Data();
 document.addEventListener("DOMContentLoaded", (e) => {
 
     // get all highlights
-    data.getEventsAndScorers()
+    data.getEventsAndScorers('../data/match-events.json', '../data/match-scorers.json')
         .then(highlights => {
             ui.displayHighlights(highlights);
         })
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     document.getElementById('score').addEventListener('click', (e) => {
         // get all highlights
-        data.getEventsAndScorers()
+        data.getEventsAndScorers('../data/match-events.json', '../data/match-scorers.json')
             .then(highlights => {
                 ui.displayHighlights(highlights);
             })
